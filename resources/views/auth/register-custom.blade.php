@@ -9,7 +9,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Sash – Bootstrap 5  Admin & Dashboard Template">
     <meta name="author" content="Spruko Technologies Private Limited">
-    <meta name="keywords" content="admin,admin dashboard,admin panel,admin template,bootstrap,clean,dashboard,flat,jquery,modern,responsive,premium admin templates,responsive admin,ui,ui kit.">
+    <meta name="keywords"
+        content="admin,admin dashboard,admin panel,admin template,bootstrap,clean,dashboard,flat,jquery,modern,responsive,premium admin templates,responsive admin,ui,ui kit.">
 
     <!-- FAVICON -->
     <link rel="shortcut icon" type="image/x-icon" href="../assets/images/brand/favicon.ico">
@@ -54,96 +55,169 @@
                 <!-- CONTAINER OPEN -->
                 <div class="col col-login mx-auto mt-7">
                     <div class="text-center">
-                        <a href="{{ url('/') }}"><img src="../assets/images/brand/logo-white.png" class="header-brand-img m-0" alt="Logo"></a>
+                        <a href="{{ url('/') }}"><img src="../assets/images/brand/logo-white.png"
+                                class="header-brand-img m-0" alt="Logo"></a>
                     </div>
                 </div>
                 <div class="container-login100">
-                    <div class="wrap-login100 p-6">
+
+                    <div class="wrap-login100 col-6 p-6">
                         <form class="login100-form validate-form" method="POST" action="{{ route('register') }}">
                             @csrf
                             <span class="login100-form-title">
                                 Registration
                             </span>
-                            <div class="wrap-input100 validate-input input-group">
-                                <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
-                                    <i class="mdi mdi-account" aria-hidden="true"></i>
-                                </a>
-                                <input class="input100 border-start-0 ms-0 form-control" type="text" name="name" placeholder="Name" value="{{ old('name') }}" required>
-                                @error('name')
-                                    <small class="text-danger">{{ $message }}</small>
-                                @enderror
+
+                            <div class="row">
+                                <!-- Name Field (First Column) -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">Name</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-white text-muted">
+                                            <i class="mdi mdi-account" aria-hidden="true"></i>
+                                        </span>
+                                        <input type="text" class="form-control" id="name" name="name"
+                                            placeholder="Name" value="{{ old('name') }}" required>
+                                    </div>
+                                    @error('name')
+                                        <div class="invalid-feedback" style="display:block;">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                                <!-- Email Field (First Column) -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-white text-muted">
+                                            <i class="zmdi zmdi-email" aria-hidden="true"></i>
+                                        </span>
+                                        <input type="email" class="form-control" id="email" name="email"
+                                            placeholder="Email" value="{{ old('email') }}" required>
+                                    </div>
+                                    @error('email')
+                                        <div class="invalid-feedback" style="display:block;">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                                <!-- Password Field (Second Column) -->
+                                <div class="col-md-6 mb-3" id="Password-toggle">
+                                    <label for="password" class="form-label">Password</label>
+                                    <div class="input-group">
+
+                                        <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
+                                            <i class="zmdi zmdi-eye-off" aria-hidden="true"></i>
+                                        </a>
+
+                                        <input type="password" class="form-control" id="password" name="password"
+                                            placeholder="Password" required>
+                                    </div>
+                                    @error('password')
+                                        <div class="invalid-feedback" style="display:block;">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                                <!-- Confirm Password Field (Second Column) -->
+                                <div class="col-md-6 mb-3" id="Password-toggle">
+                                    <label for="password_confirmation" class="form-label">Confirm Password</label>
+                                    <div class="input-group">
+                                        <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
+                                            <i class="zmdi zmdi-eye-off" aria-hidden="true"></i>
+                                        </a>
+                                        <input type="password" class="form-control" id="password_confirmation"
+                                            name="password_confirmation" placeholder="Confirm Password" required>
+                                    </div>
+                                    @error('password_confirmation')
+                                        <div class="invalid-feedback" style="display:block;">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                                <!-- Location Field (First Column) -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="location" class="form-label">Location</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-white text-muted">
+                                            <i class="mdi mdi-map-marker" aria-hidden="true"></i>
+                                        </span>
+                                        <input type="text" class="form-control" id="location" name="location"
+                                            placeholder="Location" value="{{ old('location') }}">
+                                    </div>
+                                    @error('location')
+                                        <div class="invalid-feedback" style="display:block;">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                                <!-- Phone Field (Second Column) -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-white text-muted">
+                                            <i class="mdi mdi-phone" aria-hidden="true"></i>
+                                        </span>
+                                        <input type="text" class="form-control" id="phone" name="phone"
+                                            placeholder="Phone Number" value="{{ old('phone') }}">
+                                    </div>
+                                    @error('phone')
+                                        <div class="invalid-feedback" style="display:block;">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                                <!-- User Type Field (First Column) -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="usertype" class="form-label">User Type</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-white text-muted">
+                                            <i class="mdi mdi-account" aria-hidden="true"></i>
+                                        </span>
+                                        <select class="form-control" id="usertype" name="usertype" required>
+                                            <option value="">Select User Type</option>
+                                            <option value="user" {{ old('usertype') == 'user' ? 'selected' : '' }}>
+                                                User</option>
+                                            <option value="admin" {{ old('usertype') == 'admin' ? 'selected' : '' }}>
+                                                Admin</option>
+                                        </select>
+                                    </div>
+                                    @error('usertype')
+                                        <div class="invalid-feedback" style="display:block;">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                                <!-- Preference Field (Second Column) -->
+                                <div class="col-md-6 mb-3" id="preference-container" style="display: none;">
+                                    <label for="preference" class="form-label">Preference</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-white text-muted">
+                                            <i class="mdi mdi-leaf" aria-hidden="true"></i>
+                                        </span>
+                                        <select class="form-control" id="preference" name="preference">
+                                            <option value="">Select Preference</option>
+                                            <option value="indoor"
+                                                {{ old('preference') == 'indoor' ? 'selected' : '' }}>Indoor Plants
+                                            </option>
+                                            <option value="outdoor"
+                                                {{ old('preference') == 'outdoor' ? 'selected' : '' }}>Outdoor Plants
+                                            </option>
+                                        </select>
+                                    </div>
+                                    @error('preference')
+                                        <div class="invalid-feedback" style="display:block;">{{ $message }}</div>
+                                    @enderror
+                                </div>
                             </div>
-                            <div class="wrap-input100 validate-input input-group">
-                                <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
-                                    <i class="zmdi zmdi-email" aria-hidden="true"></i>
-                                </a>
-                                <input class="input100 border-start-0 ms-0 form-control" type="email" name="email" placeholder="Email" value="{{ old('email') }}" required>
-                                @error('email')
-                                    <small class="text-danger">{{ $message }}</small>
-                                @enderror
-                            </div>
-                            <div class="wrap-input100 validate-input input-group" id="Password-toggle">
-                                <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
-                                    <i class="zmdi zmdi-eye" aria-hidden="true"></i>
-                                </a>
-                                <input class="input100 border-start-0 ms-0 form-control" type="password" name="password" placeholder="Password" required>
-                                @error('password')
-                                    <small class="text-danger">{{ $message }}</small>
-                                @enderror
-                            </div>
-                            <div class="wrap-input100 validate-input input-group">
-                                <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
-                                    <i class="mdi mdi-map-marker" aria-hidden="true"></i>
-                                </a>
-                                <input class="input100 border-start-0 ms-0 form-control" type="text" name="location" placeholder="Location" value="{{ old('location') }}">
-                                @error('location')
-                                    <small class="text-danger">{{ $message }}</small>
-                                @enderror
-                            </div>
-                            <div class="wrap-input100 validate-input input-group">
-                                <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
-                                    <i class="mdi mdi-phone" aria-hidden="true"></i>
-                                </a>
-                                <input class="input100 border-start-0 ms-0 form-control" type="text" name="phone" placeholder="Phone Number" value="{{ old('phone') }}">
-                                @error('phone')
-                                    <small class="text-danger">{{ $message }}</small>
-                                @enderror
-                            </div>
-                            <div class="wrap-input100 validate-input input-group">
-                                <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
-                                    <i class="mdi mdi-account-group" aria-hidden="true"></i>
-                                </a>
-                                <select class="input100 border-start-0 ms-0 form-control" name="usertype" id="usertype" required>
-                                    <option value="">Select User Type</option>
-                                    <option value="user" {{ old('usertype') == 'user' ? 'selected' : '' }}>User</option>
-                                    <option value="admin" {{ old('usertype') == 'admin' ? 'selected' : '' }}>Admin</option>
-                                </select>
-                                @error('usertype')
-                                    <small class="text-danger">{{ $message }}</small>
-                                @enderror
-                            </div>
-                            <div class="wrap-input100 validate-input input-group" id="preference-container" style="display: none;">
-                                <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
-                                    <i class="mdi mdi-leaf" aria-hidden="true"></i>
-                                </a>
-                                <select class="input100 border-start-0 ms-0 form-control" name="preference">
-                                    <option value="">Select Preference</option>
-                                    <option value="indoor" {{ old('preference') == 'indoor' ? 'selected' : '' }}>Indoor Plants</option>
-                                    <option value="outdoor" {{ old('preference') == 'outdoor' ? 'selected' : '' }}>Outdoor Plants</option>
-                                </select>
-                                @error('preference')
-                                    <small class="text-danger">{{ $message }}</small>
-                                @enderror
-                            </div>
-                            <div class="container-login100-form-btn">
+
+                            <!-- Submit Button -->
+                            <div class="container-login100-form-btn mb-3">
                                 <button type="submit" class="login100-form-btn btn-primary">
                                     Register
                                 </button>
                             </div>
+
+                            <!-- Sign In Link -->
                             <div class="text-center pt-3">
-                                <p class="text-dark mb-0 d-inline-flex">Already have an account? <a href="{{ route('login') }}" class="text-primary ms-1">Sign In</a></p>
+                                <p class="text-dark mb-0 d-inline-flex">Already have an account? <a
+                                        href="{{ route('login') }}" class="text-primary ms-1">Sign In</a></p>
                             </div>
                         </form>
+
                     </div>
                 </div>
                 <!-- CONTAINER CLOSED -->
@@ -180,7 +254,7 @@
     <script src="../assets/switcher/js/switcher.js"></script>
 
     <script>
-        document.getElementById('usertype').addEventListener('change', function () {
+        document.getElementById('usertype').addEventListener('change', function() {
             const preferenceContainer = document.getElementById('preference-container');
             if (this.value === 'user') {
                 preferenceContainer.style.display = 'block';

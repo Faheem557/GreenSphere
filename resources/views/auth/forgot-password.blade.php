@@ -1,24 +1,121 @@
-<x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600">
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+    <!-- META DATA -->
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Sash – Bootstrap 5 Admin & Dashboard Template">
+    <meta name="author" content="Spruko Technologies Private Limited">
+    <meta name="keywords" content="admin,admin dashboard,admin panel,admin template,bootstrap,clean,dashboard,flat,jquery,modern,responsive,premium admin templates,responsive admin,ui,ui kit.">
+
+    <!-- FAVICON -->
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/images/brand/favicon.ico">
+
+    <!-- TITLE -->
+    <title>Forgot Password - Admin</title>
+
+    <!-- BOOTSTRAP CSS -->
+    <link id="style" href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- STYLE CSS -->
+    <link href="../assets/css/style.css" rel="stylesheet">
+
+    <!-- Plugins CSS -->
+    <link href="../assets/css/plugins.css" rel="stylesheet">
+
+    <!--- FONT-ICONS CSS -->
+    <link href="../assets/css/icons.css" rel="stylesheet">
+
+    <!-- INTERNAL Switcher css -->
+    <link href="../assets/switcher/css/switcher.css" rel="stylesheet">
+    <link href="../assets/switcher/demo.css" rel="stylesheet">
+</head>
+
+<body class="app sidebar-mini ltr login-img">
+
+    <!-- BACKGROUND-IMAGE -->
+    <div class="">
+
+        <!-- GLOABAL LOADER -->
+        <div id="global-loader">
+            <img src="../assets/images/loader.svg" class="loader-img" alt="Loader">
+        </div>
+        <!-- End GLOABAL LOADER -->
+
+        <!-- PAGE -->
+        <div class="page">
+            <div class="">
+
+                <!-- CONTAINER OPEN -->
+                <div class="col col-login mx-auto">
+                    <div class="text-center">
+                        <a href="index.html"><img src="../assets/images/brand/logo-white.png" class="header-brand-img m-0" alt=""></a>
+                    </div>
+                </div>
+
+                <!-- CONTAINER OPEN -->
+                <div class="container-login100">
+                    <div class="wrap-login100 p-6">
+                        <form class="login100-form validate-form" method="POST" action="{{ route('password.email') }}">
+                            @csrf
+                            <span class="login100-form-title pb-5">
+                                Forgot Password
+                            </span>
+                            <p class="text-muted">Enter the email address registered on your account</p>
+                            
+                            <!-- Email Address -->
+                            <div class="wrap-input100 validate-input input-group" data-bs-validate="Valid email is required: ex@abc.xyz">
+                                <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
+                                    <i class="zmdi zmdi-email" aria-hidden="true"></i>
+                                </a>
+                                <input class="input100 border-start-0 ms-0 form-control" type="email" name="email" :value="old('email')" placeholder="Email" required autofocus>
+                            </div>
+                            <!-- Email Validation Errors -->
+                            @if ($errors->has('email'))
+                                <div class="text-danger mt-2">
+                                    {{ $errors->first('email') }}
+                                </div>
+                            @endif
+
+                            <div class="submit mt-3">
+                                <button type="submit" class="btn btn-primary d-grid">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- END CONTAINER OPEN -->
+
+            </div>
+        </div>
+        <!-- END PAGE -->
     </div>
+    <!-- BACKGROUND-IMAGE CLOSED -->
 
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
-    <form method="POST" action="{{ route('password.email') }}">
-        @csrf
+    <!-- JQUERY JS -->
+    <script src="../assets/js/jquery.min.js"></script>
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+    <!-- BOOTSTRAP JS -->
+    <script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
+    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Email Password Reset Link') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    <!-- SHOW PASSWORD JS -->
+    <script src="../assets/js/show-password.min.js"></script>
+
+    <!-- Perfect SCROLLBAR JS-->
+    <script src="../assets/plugins/p-scroll/perfect-scrollbar.js"></script>
+
+    <!-- Color Theme js -->
+    <script src="../assets/js/themeColors.js"></script>
+
+    <!-- CUSTOM JS -->
+    <script src="../assets/js/custom.js"></script>
+
+    <!-- Custom-switcher -->
+    <script src="../assets/js/custom-swicher.js"></script>
+
+    <!-- Switcher js -->
+    <script src="../assets/switcher/js/switcher.js"></script>
+
+</body>
+</html>
