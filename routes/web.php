@@ -4,7 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('auth.CustomLogin');
+    return view('welcome');
+    // return view('auth.CustomLogin');
 });
 
 Route::get('/dashboard', function () {

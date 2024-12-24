@@ -111,6 +111,9 @@
                                 </button>
                             </div>
                         </form>
+                        <div class="text-center pt-3">
+                            <p class="text-dark mb-0">Not a member?<a href="{{ route('register') }}" class="text-primary ms-1">Sign UP</a></p>
+                        </div>
                     </div>
                 </div>
                 <!-- CONTAINER CLOSED -->
